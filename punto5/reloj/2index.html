@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj</title>
+    <link rel="stylesheet" href="/reloj/css/style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .clock {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #selector {
+            margin-bottom: 20px;
+        }
+
+        .selector-btn {
+            margin-right: 10px;
+        }
+
+        .mode {
+            text-align: center;
+        }
+
+        .timer-form {
+            margin-bottom: 10px;
+        }
+
+        .boton {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="title">Reloj</h1>
+    <div id="clock" class="clock">
+        <span id="time"></span>
+        <span id="period"></span>
+    </div>
+    <div class="container">
+        <div id="selector">
+            <button class="selector-btn" onclick="selectMode('chrono')">Cronómetro</button>
+            <button class="selector-btn" onclick="selectMode('timer')">Temporizador</button>
+        </div>
+        <div id="mode-container">
+            <div id="chrono" class="mode hide">
+                <h2>Cronómetro</h2>
+                <div id="chronoDisplay">00:00:00</div>
+                <button class="boton" onclick="startChronometer()">Iniciar</button>
+                <button class="boton" onclick="stopChronometer()">Detener</button>
+                <button class="boton" onclick="resetChronometer()">Reiniciar</button>
+            </div>
+            <div id="timer" class="mode hide">
+                <h2>Temporizador</h2>
+                <form id="timerForm" class="timer-form">
+                    <input type="number" id="hours" placeholder="Horas">
+                    <input type="number" id="minutes" placeholder="Minutos">
+                    <input type="number" id="seconds" placeholder="Segundos">
+                    <button class="boton" type="button" onclick="startTimer()">Iniciar</button>
+                    <button class="boton" type="button" onclick="stopTimer()">Detener</button>
+                    <button class="boton" type="button" onclick="resetTimer()">Reiniciar</button>
+                </form>
+                <div id="timerDisplay" class="hide">00:00:00</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/reloj/js/app.js"></script>
+
+</body>
+</html>
+
